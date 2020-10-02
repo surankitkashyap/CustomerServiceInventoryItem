@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Javascript name="4-JS-RequestPayloadUpdateCustomerServiceInventoryItem" async="false" timeLimit="200" enabled="true" continueOnError="false">
+    <DisplayName>4-JS-RequestPayloadUpdateCustomerServiceInventoryItem</DisplayName>
+    <Properties/>
+    <ResourceURL>jsc://RequestPayloadUpdateCustomerServiceInventoryItem/InvokePolicy.js</ResourceURL>
+    <IncludeURL>jsc://jsonpath-0.8.0.js</IncludeURL>
+    <IncludeURL>jsc://RequestPayloadUpdateCustomerServiceInventoryItem/RequestPayloadUpdateCustomerServiceInventoryItem.js</IncludeURL>
+</Javascript>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Javascript name="4-JS-AssignLogPoint" enabled="true" continueOnError="false" async="false" timeLimit="200">
+    <ResourceURL>jsc://AssignLogPoint/InvokePolicy.js</ResourceURL>
+    <IncludeURL>jsc://AssignLogPoint/AssignLogPoint.js</IncludeURL>
+</Javascript>

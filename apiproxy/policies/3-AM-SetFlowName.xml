@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage name="3-AM-SetFlowName">
+    <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+    <AssignVariable>
+        <Name>currentFlowName</Name>
+        <Ref>current.flow.name</Ref>
+    </AssignVariable>
+</AssignMessage>

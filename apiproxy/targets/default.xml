@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TargetEndpoint name="default">
+    <Description>Customer service inventory item</Description>
+    <Flows/>
+    <FaultRules>
+        <FaultRule name="defaultFaultTarget">
+            <Step>
+                <Name>3-AM-AssignLogPoint</Name>
+            </Step>
+            <Step>
+                <Name>4-JS-AssignLogPoint</Name>
+            </Step>
+            <Step>
+                <Name>VBPS-0-SF-LogULFFContent</Name>
+            </Step>
+            <Step>
+                <Name>3-AM-RemoveLogPoint</Name>
+            </Step>
+            <Step>
+                <Name>VBPS-0-SF-HandleSoapErrorResponse</Name>
+            </Step>
+            <Step>
+                <Name>4-JS-AssignLogPoint</Name>
+            </Step>
+            <Step>
+                <Name>VBPS-0-SF-LogULFFContent</Name>
+            </Step>
+            <Step>
+                <Name>0-SF-ApigeeAnalytics</Name>
+            </Step>
+        </FaultRule>
+    </FaultRules>
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+                <Name>3-AM-RemovePathSuffix</Name>
+            </Step>
+            <Step>
+                <Name>4-JS-RouteToTargetServer</Name>
+            </Step>
+        </Request>
+        <Response>
+            <Step>
+                <Name>3-AM-CopyResponseHeaders</Name>
+            </Step>
+            <Step>
+                <Name>4-JS-AssignLogPoint</Name>
+            </Step>
+            <Step>
+                <Name>VBPS-0-SF-LogULFFContent</Name>
+            </Step>
+            <Step>
+                <Name>4-JS-SOAPResponse</Name>
+            </Step>
+        </Response>
+    </PreFlow>
+    <PostFlow name="PostFlow">
+        <Request>
+            <Step>
+                <Name>VBPS-0-SF-SetBEHeaders</Name>
+            </Step>
+            <Step>
+                <Name>4-JS-AssignLogPoint</Name>
+            </Step>
+            <Step>
+                <Name>VBPS-0-SF-LogULFFContent</Name>
+            </Step>
+        </Request>
+        <Response/>
+    </PostFlow>
+    <HTTPTargetConnection>
+        <Properties/>
+        <LoadBalancer>
+            <Server name="customerserviceinventoryservicenow-ms"/>
+        </LoadBalancer>
+        <Path>{targetUrl}</Path>
+    </HTTPTargetConnection>
+</TargetEndpoint>

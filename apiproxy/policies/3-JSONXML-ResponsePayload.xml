@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<JSONToXML name="3-JSONXML-ResponsePayload" enabled="true" continueOnError="false" async="false">
+    <DisplayName>3-JSONXML-ResponsePayload</DisplayName>
+    <Source>response</Source>
+    <OutputVariable>response</OutputVariable>
+</JSONToXML>

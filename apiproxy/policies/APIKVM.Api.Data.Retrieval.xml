@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KeyValueMapOperations name="APIKVM.Api.Data.Retrieval" enabled="true" mapIdentifier="VBPSTroubleTicket">
+    <Scope>environment</Scope>
+    <Get assignTo="validation">
+        <Key>
+            <Parameter>VALIDATION</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="headersToMask">
+        <Key>
+            <Parameter>headersToMask</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="X_Frame_Options">
+        <Key>
+            <Parameter>X_FRAME_OPTIONS</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="X_Content_Type_Options">
+        <Key>
+            <Parameter>X_CONTENT_TYPE_OPTIONS</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="X_XSS_Protection">
+        <Key>
+            <Parameter>X_XSS_PROTECTION</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="enum_exceptions">
+        <Key>
+            <Parameter>ENUM_EXCEPTIONS</Parameter>
+        </Key>
+    </Get>
+</KeyValueMapOperations>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Javascript name="JS-PopulateErrorResponse" enabled="true" continueOnError="false" async="false" timeLimit="200">
+    <DisplayName>JS-PopulateErrorResponse</DisplayName>
+    <ResourceURL>jsc://PopulateErrorResponse/InvokePolicy.js</ResourceURL>
+    <IncludeURL>jsc://PopulateErrorResponse/PopulateErrorResponse.js</IncludeURL>
+</Javascript>

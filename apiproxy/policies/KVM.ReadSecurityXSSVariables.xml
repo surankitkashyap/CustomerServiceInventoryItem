@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KeyValueMapOperations name="KVM.ReadSecurityXSSVariables" enabled="true" mapIdentifier="VBPSTroubleTicket">
+    <Scope>environment</Scope>
+    <Get assignTo="security_request_xss">
+        <Key>
+            <Parameter>security_request_xss</Parameter>
+        </Key>
+    </Get>
+</KeyValueMapOperations>

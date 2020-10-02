@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage name="AM-FaultHandling" async="false" continueOnError="false" enabled="true">
+    <FaultRules/>
+    <Properties/>
+    <Set>
+        <Headers>
+            <Header name="Content-Type">application/xml</Header>
+            <!--<Header name="vf-trace-transaction-id">{vf.trace.transaction.id}</Header>-->
+            <Header name="Date">{dateForFault}</Header>
+        </Headers>
+        <StatusCode>{e_status}</StatusCode>
+        <ReasonPhrase>{e_reason}</ReasonPhrase>
+        <Payload content-type="application/xml"><![CDATA[   <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:c="http://www.tibco.com/schemas/asg/context" xmlns:m="http://www.tibco.com/asg/mapping" xmlns:h="http://www.tibco.com/asg/protocols/http">
+<SOAP-ENV:Body>
+      <SOAP-ENV:Fault>
+         <faultcode>SOAP-ENV:Server</faultcode>
+         <faultstring>{e_reason}</faultstring>
+         <detail>
+            <ns:Fault xmlns:ns="http://group.vodafone.com/contract/vfo/fault/v1">
+               <ns1:Timestamp xmlns:ns1="http://docs.oasis-open.org/wsrf/bf-2">{dateForFault}</ns1:Timestamp>
+               <ns1:Originator xmlns:ns1="http://docs.oasis-open.org/wsrf/bf-2">
+                  <ns2:Address xmlns:ns2="http://www.w3.org/2005/08/addressing">ASG:IncidentVBSServiceV1_0_0</ns2:Address>
+               </ns1:Originator>
+               <ns1:FaultCause xmlns:ns1="http://docs.oasis-open.org/wsrf/bf-2">{e_reason}</ns1:FaultCause>
+               <ns:Name>{e_reason}</ns:Name>
+               <ns:Severity>Critical</ns:Severity>
+               <ns:Category>Technical</ns:Category>
+               <ns:ReasonCode>{e_status}</ns:ReasonCode>
+               <ns:Message>{e_message}</ns:Message>
+            </ns:Fault>
+         </detail>
+      </SOAP-ENV:Fault>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope> ]]></Payload>
+    </Set>
+    <AssignTo type="response" createNew="false"/>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</AssignMessage>

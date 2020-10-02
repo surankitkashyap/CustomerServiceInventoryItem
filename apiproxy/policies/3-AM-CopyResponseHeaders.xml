@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage name="3-AM-CopyResponseHeaders" enabled="true" continueOnError="false" async="false">
+    <DisplayName>3-AM-CopyResponseHeaders</DisplayName>
+    <AssignVariable>
+        <Name>VF_INT_TRACE_ID_resp</Name>
+        <Ref>response.header.VF_INT_TRACE_ID</Ref>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>vf_trace_transaction_id_resp</Name>
+        <Ref>response.header.vf-trace-transaction-id</Ref>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>VF_INT_TRACK_ID_resp</Name>
+        <Ref>response.header.VF_INT_TRACK_ID</Ref>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>VF_INT_CALLER_ID_resp</Name>
+        <Ref>response.header.VF_INT_CALLER_ID</Ref>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>VF_EXT_TRACE_ID_resp</Name>
+        <Ref>response.header.VF_EXT_TRACE_ID</Ref>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>VF_EXT_REFERENCE_ID_resp</Name>
+        <Ref>response.header.VF_EXT_REFERENCE_ID</Ref>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>VF_EXT_BP_ID_resp</Name>
+        <Ref>response.header.VF_EXT_BP_ID</Ref>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>VF_INT_STATUS_FLOW_resp</Name>
+        <Ref>response.header.VF_INT_STATUS_FLOW</Ref>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</AssignMessage>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Javascript name="JsCallCheckXSSInRequest" enabled="true" continueOnError="false" async="false" timeLimit="200">
+    <DisplayName>JsCall.CheckXSSInRequest</DisplayName>
+    <Properties/>
+    <ResourceURL>jsc://SecurityProtectionXSS/InvokePolicy.js</ResourceURL>
+    <IncludeURL>jsc://SecurityProtectionXSS/CheckXSSInRequest.js</IncludeURL>
+</Javascript>

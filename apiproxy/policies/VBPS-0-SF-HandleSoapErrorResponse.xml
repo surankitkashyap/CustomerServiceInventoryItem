@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<FlowCallout async="false" continueOnError="false" enabled="true" name="VBPS-0-SF-HandleSoapErrorResponse">
+    <DisplayName>VBPS-0-SF-HandleSoapErrorResponse</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <SharedFlowBundle>VBPS-0-SF-HandleSoapErrorResponse</SharedFlowBundle>
+</FlowCallout>

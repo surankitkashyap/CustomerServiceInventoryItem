@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "name": "epns-development-masterdev",
+            "policies": [],
+			"proxies": [],
+            "targets": []
+		}
+	]
+}

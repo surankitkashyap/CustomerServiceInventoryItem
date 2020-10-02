@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage name="3-AM-RemoveLogPoint" enabled="true" continueOnError="false" async="false">
+    <DisplayName>3-AM-RemoveLogPoint</DisplayName>
+    <AssignVariable>
+        <Name>logPoint</Name>
+        <Value/>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</AssignMessage>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables name="3-EV-SetResponseCode" async="false" continueOnError="false" enabled="true">
+    <DisplayName>3-EV-SetResponseCode</DisplayName>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <Source>response</Source>
+    <!--<Header name="beStatusCode">-->
+    <!--    <Pattern ignoreCase="true">response.status.code</Pattern>-->
+    <!--</Header>-->
+    <JSONPayload>
+        <Variable name="code" type="string">
+            <JSONPath>$.code</JSONPath>
+        </Variable>
+    </JSONPayload>
+    <VariablePrefix>backendResponse</VariablePrefix>
+</ExtractVariables>

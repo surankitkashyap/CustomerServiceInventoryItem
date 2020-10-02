@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "name": "epns-development-ft2",
+            "policies": [],
+			"proxies": [],
+            "targets": []
+		}
+	]
+}

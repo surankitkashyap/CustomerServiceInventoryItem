@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Javascript name="4-JS-SOAPResponse" enabled="true" continueOnError="false" async="false" timeLimit="200">
+    <DisplayName>4-JS-SOAPResponse</DisplayName>
+    <Properties/>
+    <ResourceURL>jsc://SOAPResponse/InvokePolicy.js</ResourceURL>
+    <IncludeURL>jsc://SOAPResponse/SOAPResponse.js</IncludeURL>
+</Javascript>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage name="3-AM-AddTrackingHeaders" async="false" enabled="true" continueOnError="false">
+    <DisplayName>3-AM-AddTrackingHeaders</DisplayName>
+    <Set>
+        <Headers>
+            <Header name="vf-trace-transaction-id">{conversationID}</Header>
+            <Header name="VF_EXT_REFERENCE_ID">{conversationID}</Header>
+        </Headers>
+    </Set>
+    <AssignVariable>
+        <Name>vf.trace.transaction.id</Name>
+        <Ref>conversationID</Ref>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo type="request" createNew="false" transport="http"/>
+</AssignMessage>

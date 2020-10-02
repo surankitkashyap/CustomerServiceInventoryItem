@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <Description/>
+    <FaultRules>
+        <FaultRule name="all">
+            <Step>
+                <Name>JS-PopulateErrorResponse</Name>
+            </Step>
+            <Step>
+                <Name>AM-FaultHandling</Name>
+            </Step>
+            <Step>
+                <Name>4-JS-AssignLogPoint</Name>
+            </Step>
+            <Step>
+                <Name>VBPS-0-SF-LogULFFContent</Name>
+            </Step>
+        </FaultRule>
+    </FaultRules>
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+                <Name>APIKVM.Api.Data.Retrieval</Name>
+            </Step>
+            <Step>
+                <Name>Jsc.parse.Api.Data.Retrieval</Name>
+            </Step>
+            <Step>
+                <Name>VBPS-0-SF-ExtractSoapHeaders</Name>
+            </Step>
+            <Step>
+                <Name>3-AM-AddTrackingHeaders</Name>
+            </Step>
+            <Step>
+                <Name>3-AM-CopyRequestHeaders</Name>
+            </Step>
+            <Step>
+                <Name>0-SF-CheckTransactionId</Name>
+            </Step>
+            <Step>
+                <Condition>proxy.pathsuffix !="/vault"</Condition>
+                <Name>KVM.ReadSecurityXSSVariables</Name>
+            </Step>
+            <!--  <Step>
+                <Condition>proxy.pathsuffix !="/vault"</Condition>
+                <Name>JsCallCheckXSSInRequest</Name>
+            </Step>-->
+            <Step>
+                <Name>0-SF-ValidatePayloadSize</Name>
+            </Step>
+            <Step>
+                <Name>0-SF-ApplySpikeArrest</Name>
+            </Step>
+            <Step>
+                <Name>0-SF-ApplyQuota</Name>
+            </Step>
+            <Step>
+                <Name>4-JS-AssignLogPoint</Name>
+            </Step>
+            <Step>
+                <Name>VBPS-0-SF-LogULFFContent</Name>
+            </Step>
+        </Request>
+        <Response/>
+    </PreFlow>
+    <PostFlow name="PostFlow">
+        <Request>
+            <Step>
+                <Name>4-JS-AssignLogPoint</Name>
+            </Step>
+            <Step>
+                <Name>VBPS-0-SF-LogULFFContent</Name>
+            </Step>
+            <Step>
+                <Name>0-SF-ApigeeAnalytics</Name>
+            </Step>
+        </Request>
+        <Response/>
+    </PostFlow>
+    <Flows>
+        <Flow name="UpdateCustomerServiceInventoryItem">
+            <Condition>((request.header.SOAPAction = "http://group.vodafone.com/contract/vbs/service/customer-service-inventory-item/v1/update") and (request.verb ="POST"))</Condition>
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>3-XMLJSON-SOAPPayload</Name>
+                </Step>
+                <Step>
+                    <Name>4-JS-RequestPayloadUpdateCustomerServiceInventoryItem</Name>
+                </Step>
+            </Request>
+            <Response/>
+        </Flow>
+        <Flow name="METHOD_NOT_ALLOWED">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>3-AM-SetFlowName</Name>
+                </Step>
+                <Step>
+                    <Name>4-JS-MethodNotAllowed</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>((request.header.SOAPAction = "http://group.vodafone.com/contract/vbs/service/customer-service-inventory-item/v1/update") and !(request.verb = "POST"))</Condition>
+        </Flow>
+        <Flow name="RESOURCE_NOT_FOUND">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>3-AM-SetFlowName</Name>
+                </Step>
+                <Step>
+                    <Name>4-JS-ResourceNotFound</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>!((request.header.SOAPAction = "http://group.vodafone.com/contract/vbs/service/customer-service-inventory-item/v1/update"))</Condition>
+        </Flow>
+    </Flows>
+    <HTTPProxyConnection>
+        <BasePath>/customerServiceInventoryItemAPI/v2/</BasePath>
+        <Properties/>
+        <VirtualHost>default</VirtualHost>
+    </HTTPProxyConnection>
+    <RouteRule name="default">
+        <TargetEndpoint>default</TargetEndpoint>
+    </RouteRule>
+</ProxyEndpoint>

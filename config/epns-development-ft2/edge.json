@@ -1,0 +1,107 @@
+{
+  "version": "1.0.0",
+  "envConfig": {
+    "ft2": {
+      "kvms": [
+	  {
+			"name": "SF-KVM-SetOutHeaders",
+			"entry":[
+			{
+				"name":"VBPSCSMCustomerServiceInventoryItem-SOAP",
+				"value":"{\"VALIDATION_CONTENT_TYPE_HEADER_PATCH\":\"application\/merge-patch+json,application\/json-patch+json\",\"VALIDATION_IN_HEADERS\":\"Accept-Encoding, Content-Length, Content-Type, Host,User-Agent, X-Forwarded-For, X-Forwarded-Host, X-Forwarded-Port, X-Forwarded-Proto, X-Forwarded-Server, VF-TRACE-TRANSACTION-ID, VF_EXT_REFERENCE_ID\",\"VALIDATION_ACCEPT_CHARSET_HEADER\":\"UTF-8\",\"VALIDATION_CONTENT_TYPE_HEADER\":\"application\/json,application\/json;charset=utf-8\",\"VALIDATION_OUT_HEADERS\":\"Connection, Content-Encoding, Content-Type, Date, TotalQuantity, Transfer-Encoding, vf-trace-transaction-id\",\"VALIDATION_ACCEPT_HEADER\":\"*\/*,application\/*,application\/json\"}"
+			}
+			]
+		 },
+        {
+          "name": "SF-KVM-ApplyQuota",
+          "entry": [
+            {
+              "name": "VBPSCSMCustomerServiceInventoryItem-SOAP",
+              "value": "{\"enabled\": \"true\", \"throttling_quota_1min_count\": \"600\" }"
+            }
+          ]
+        },
+        {
+          "name": "SF-KVM-ApplySpikeArrest",
+          "entry": [
+            {
+              "name": "VBPSCSMCustomerServiceInventoryItem-SOAP",
+              "value": "{\"rate\": \"50ps\", \"enabled\": \"true\"}"
+            }
+          ]
+        },
+        {
+          "name": "SF-KVM-ValidateQueryParams",
+          "entry": [
+            {
+              "name": "VBPSCSMCustomerServiceInventoryItem-SOAP",
+              "value": "{}"
+            }
+          ]
+        },        
+        {
+          "name": "VBPSCSMCustomerServiceInventoryItem-SOAP",
+          "entry": [
+            {
+              "name": "security_request_xss",
+              "value": "{\"security_request_xss_headers\" : { \"enabled\" : true , \"regex\" : \"[^|{}<>]\"},\"security_request_xss_query\" : { \"enabled\" : true , \"regex\" : \"[^$|{}<>]\"},\"security_request_xss_payload\" : { \"enabled\" : false , \"regex\" : \"\"},\"security_request_xml_escape\" : { \"enabled\" : false , \"xml-escape-vars\" : \"\"}}"
+            },
+            {
+              "name": "X_CONTENT_TYPE_OPTIONS",
+              "value": "nosniff"
+            },
+            {
+              "name": "X_XSS_PROTECTION",
+              "value": "1; mode=block"
+            },
+            {
+              "name": "VALIDATION",
+              "value": "{\"VALIDATION_IN_HEADERS\": \"vf-trace-transaction-id, Accept, orderby, User-Agent, Content-Type, vf_int_caller_id, vf_ext_trace_id, vf_ext_reference_id, vf_ext_bp_id, x-source-system\", \"VALIDATION_OUT_HEADERS\": \"Content-Type, Content-Length, vf-trace-transaction-id, Date, x-source-system\", \"VALIDATION_CONTENT_TYPE_HEADER_PATCH\": \"application\/merge-patch+json, application\/json-patch+json\", \"VALIDATION_ACCEPT_CHARSET_HEADER\": \"UTF-8\", \"VALIDATION_CONTENT_TYPE_HEADER\": \"application\/json, application\/json;charset=utf-8\", \"VALIDATION_ACCEPT_HEADER\": \"*\/*,application\/*, application\/json\"}"
+            },
+            {
+              "name": "headersToMask",
+              "value": "Authorization"
+			  "value": "apikey",
+			  
+            }
+          ]
+        }
+      ],
+      "targetServers": [
+		{
+            "name": "customerserviceinventoryservicenow-ms",
+            "host": "dev-customerserviceinventoryservicenow-ms.vbps-preprod-vpn.aws.cps.vodafone.com",
+            "isEnabled": true,
+            "port": 10799,
+            "sSLInfo": {
+                "enabled": "true",
+                "clientAuthEnabled": "true",
+                "keyStore": "ref://dxl-keystore",
+                "trustStore": "ref://dxl-truststore",
+                "keyAlias": "apigee-key",
+                "ignoreValidationErrors": "false"
+            }
+        }
+	  ]
+    }
+  },
+
+  "apiConfig": {
+    "VBPSCSMCustomerServiceInventoryItem-SOAP": {
+      "maskconfigs": [
+        {
+          "name": "default",
+          "variables": [
+            "request.header.Authorization.values",
+            "request.header.Authorization",
+            "message.header.Authorization.values",
+			"request.header.apikey",
+			"request.header.apikey.value",
+            "access_token",
+            "apigee.access_token"
+          ]
+        }
+      ]
+    }
+  }
+}
